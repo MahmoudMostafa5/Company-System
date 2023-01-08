@@ -1,0 +1,23 @@
+﻿@model BLL.Models.DepartmentVM
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Layout/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+    <label asp-for="Id">Department Id</label>
+    <input type="text" class="form-control" asp-for="Id" disabled /><br />
+    <br /><br />
+
+    <label asp-for="Name">Department Name</label>
+    <input type="text" class="form-control" asp-for="Name" disabled /><br />
+    <br /><br />
+
+    <label asp-for="Code">Department Code</label>
+    <input type="text" class="form-control" asp-for="Code" disabled /><br />
+    <br /><br />
+
+    <a asp-controller="Department" asp-action="Index" class="btn btn-info">Back To Department</a>
+    <a asp-controller="Department" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a>

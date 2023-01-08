@@ -1,0 +1,56 @@
+﻿@model BLL.Models.EmployeeVM
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Layout/_Layout.cshtml";
+}
+
+<h1>Delete</h1>
+
+<form asp-controller="Employee" asp-action="Delete" class="form-group">
+
+    @*<div asp-validation-summary="All" class="alert-danger"></div>*@
+
+    <input type="hidden" asp-for="Id" />
+    <br /><br />
+
+    <label asp-for="Name">Employee Name</label>
+    <input type="text" class="form-control" asp-for="Name" disabled /><br />
+
+    <br /><br />
+
+    <label asp-for="Salary">Employee Salary</label>
+    <input type="number" class="form-control" asp-for="Salary" disabled/><br />
+
+    <br /><br />
+
+    <label asp-for="Address">Employee Address</label>
+    <input type="text" class="form-control" asp-for="Address" disabled/><br />
+
+    <br /><br />
+
+    <label asp-for="HierDate">Employee Hier Date</label>
+    <input type="text" class="form-control" asp-for="HierDate" disabled/><br />
+
+    <br /><br />
+
+    <label asp-for="Notes">Employee Notes</label>
+    <textarea type="text" class="form-control" asp-for="Notes" rows="5" disabled></textarea><br />
+
+    <br /><br />
+
+    <div class="demo-checkbox">
+        <input type="checkbox" asp-for="IsActive" checked="" disabled/>
+        <label asp-for="IsActive">Employee Is Active ???</label>
+    </div>
+
+    <br /><br />
+
+    <label asp-for="DepartmentId">Department Id</label>
+    <select asp-for="DepartmentId" asp-items="(SelectList)ViewBag.DepartmentList" disabled></select>
+
+    <center>
+        <input type="submit" value="Delete" class="btn btn-danger" />
+    </center>
+
+</form>

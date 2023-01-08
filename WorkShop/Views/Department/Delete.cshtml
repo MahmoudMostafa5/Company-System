@@ -1,0 +1,33 @@
+﻿@model BLL.Models.DepartmentVM
+
+@{
+    ViewData["Title"] = "Delete";
+    //Layout = "~/Views/Layout/_Layout.cshtml";
+}
+
+<h1>Delete</h1>
+
+<br />
+<br />
+<a asp-controller="Department" asp-action="Index" class="btn btn-info btn-lg">Back To Department</a>
+<a asp-controller="Department" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning btn-lg">Edit</a>
+<br />
+<br />
+
+<form asp-controller="Department" asp-action="Delete" class="form-group">
+
+    <input type="hidden" asp-for="Id" />
+
+    <label asp-for="Name">Department Name</label>
+    <input type="text" class="form-control" asp-for="Name" disabled /><br />
+
+    <br /><br />
+
+    <label asp-for="Code">Department Code</label>
+    <input type="text" class="form-control" asp-for="Code" disabled /><br />
+
+    <center>
+        <input type="submit" value="Delete" class="btn btn-danger btn-lg" />
+    </center>
+
+</form>

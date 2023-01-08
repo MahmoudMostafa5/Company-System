@@ -1,0 +1,48 @@
+﻿@model BLL.Models.DepartmentVM
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Layout/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+@*@using (Html.BeginForm(new { @class = "form-group" }))
+{
+    @Html.LabelFor(x => x.Name)
+    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+
+    @Html.LabelFor(x => x.Code)
+    @Html.TextBoxFor(x => x.Code, new { @class = "form-control" })
+
+    <center>
+        <input type="submit" value="Save" class="btn btn-info" />
+        <input type="submit" value="Reset" class="btn btn-danger" />
+    </center>
+}*@
+
+<form asp-controller="Department" asp-action="create" class="form-group">
+
+    @*<div asp-validation-summary="All" class="alert-danger"></div>*@
+
+    <label asp-for="Name">Department Name</label>
+    <input type="text" class="form-control" asp-for="Name" /><br />
+    <span asp-validation-for="Name" class="text-danger"></span>
+
+    <br /><br />
+
+    <label asp-for="Code">Department Code</label>
+    <input type="text" class="form-control" asp-for="Code" /><br />
+    <span asp-validation-for="Code" class="text-danger"></span>
+
+    <center>
+        <input type="submit" value="Save" class="btn btn-info" />
+        <input type="submit" value="Reset" class="btn btn-danger" />
+    </center>
+
+</form>
+
+@section MyValidation{
+    <script src="~/plugins/jquery-validation/jquery.validate.js"></script>
+    <script src="~/plugins/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+ }

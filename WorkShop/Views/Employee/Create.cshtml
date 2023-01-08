@@ -1,0 +1,67 @@
+﻿@model BLL.Models.EmployeeVM
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Layout/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+<form asp-controller="Employee" asp-action="create" class="form-group">
+
+    @*<div asp-validation-summary="All" class="alert-danger"></div>*@
+
+    <label asp-for="Name">Employee Name</label>
+    <input type="text" class="form-control" asp-for="Name" /><br />
+    <span asp-validation-for="Name" class="text-danger"></span>
+
+    <br /><br />
+
+    <label asp-for="Salary">Employee Salary</label>
+    <input type="number" class="form-control" asp-for="Salary" /><br />
+    <span asp-validation-for="Salary" class="text-danger"></span>
+
+    <br /><br />
+
+    <label asp-for="Address">Employee Address</label>
+    <input type="text" class="form-control" asp-for="Address" /><br />
+    <span asp-validation-for="Address" class="text-danger"></span>
+
+    <br /><br />
+
+    <label asp-for="HierDate">Employee Hier Date</label>
+    <input type="date" class="form-control" asp-for="HierDate" /><br />
+    <span asp-validation-for="HierDate" class="text-danger"></span>
+
+    <br /><br />
+
+    <label asp-for="Notes">Employee Notes</label>
+    <textarea type="text" class="form-control" asp-for="Notes" rows="5"></textarea><br />
+    <span asp-validation-for="Notes" class="text-danger"></span>
+
+    <br /><br />
+
+    <div class="demo-checkbox">
+        <input type="checkbox" asp-for="IsActive" checked="" />
+        <label asp-for="IsActive">Employee Is Active ???</label>
+        <span asp-validation-for="IsActive" class="text-danger"></span>
+    </div>
+
+    <br /><br />
+
+    <label asp-for="DepartmentId" class="form-control">Department Id</label>
+    <select asp-for="DepartmentId" asp-items="(SelectList)ViewBag.DepartmentList">
+        <option>Select Department Id</option>
+    </select>
+    <span asp-validation-for="DepartmentId" class="text-danger"></span>
+
+    <center>
+        <input type="submit" value="Save" class="btn btn-info" />
+        <input type="submit" value="Reset" class="btn btn-danger" />
+    </center>
+
+</form>
+
+@section MyValidation{
+    <script src="~/plugins/jquery-validation/jquery.validate.js"></script>
+    <script src="~/plugins/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

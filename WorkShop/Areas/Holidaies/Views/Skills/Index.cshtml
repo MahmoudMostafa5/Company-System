@@ -1,0 +1,33 @@
+﻿@using BLL.Interfaces
+
+@inject IDepartmentRep department
+@inject IEmployeeRep employee  
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Layout/_Layout.cshtml";
+}
+
+
+<center>
+    <h2>Welcome To Holidaies</h2>
+</center>
+
+<br /><br />
+<h1>List Of Department</h1>
+
+<ul>
+    @foreach (var item in department.Get())
+    {
+        <li>@item.Name</li>
+    }
+</ul>
+
+<h1>List Of Employee</h1>
+
+<ul>
+    @foreach (var item in employee.Get())
+    {
+        <li>@item.Name</li>
+    }
+</ul>

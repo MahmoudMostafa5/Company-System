@@ -1,0 +1,183 @@
+﻿@*@model List<BLL.Employee>*@
+@model IEnumerable<BLL.Models.DepartmentVM>
+
+@{
+    ViewData["Title"] = "Department";
+}
+
+<div class="block-header">
+    <h1 class="text-center text-info">Department Employees</h1>
+</div>
+
+<style>
+    th {
+        text-align: center
+    }
+</style>
+
+@*<center>
+        <h1>@ViewData["x"]</h1>
+        <h1>@ViewBag.y</h1>
+        <h1>@TempData["z"]</h1>
+    </center>*@
+
+@*<select>
+        <option>Choose Employee</option>
+
+        @foreach (var item in ViewBag.data)
+        {
+            <option>@item</option>
+        }
+
+    </select>*@
+
+@*<ol>
+        @foreach (var item in ViewBag.data)
+        {
+            <li class="p-b-5">@item</li>
+        }
+    </ol>*@
+
+@*<table border="1">
+        <tr class="m-b--10">
+            <th>Name</th>
+        </tr>
+        @foreach (var item in ViewBag.data)
+        {
+            <tr class="m-b--10">
+                <td>@item</td>
+            </tr>
+        }
+    </table>*@
+
+@*Name <input type="text" list="MyList"/>
+
+    <datalist id="MyList">
+        @foreach (var item in ViewBag.data)
+        {
+            <option>@item</option>
+        }
+    </datalist>*@
+
+<br />
+<a asp-controller="Department" asp-action="Create" class="btn btn-info btn-lg">  Create New Department</a>
+@*<br />
+<br />
+
+<form asp-controller="Department" asp-action="Index" class="form-group">
+
+    <div class="row">
+        <div class="col-md-8">
+            <input type="text" name="SearchValue" placeholder="  Search By Department Name" class="form-control" />
+        </div>
+        <div class="col-md-4">
+            <input type="submit" value="Search" class="btn btn-warning btn-lg" />
+        </div>
+    </div>
+
+</form>*@
+
+<br />
+<br />
+
+<div class="container-fluid">
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header">
+                    <h2>Welcome To Department</h2>
+                    <ul class="header-dropdown m-r--5">
+                        <li class="dropdown">
+                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <i class="material-icons">more_vert</i>
+                            </a>
+                            <ul class="dropdown-menu pull-right">
+                                <li><a href="javascript:void(0);">Action</a></li>
+                                <li><a href="javascript:void(0);">Another action</a></li>
+                                <li><a href="javascript:void(0);">Something else here</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped table-hover js-basic-example dataTable text-center font-weight-bold">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Code</th>
+                                    <th>Details</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.Id</td>
+                                        <td>@item.Name</td>
+                                        <td>@item.Code</td>
+                                        <td><a asp-controller="Department" asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a></td>
+                                        <td><a asp-controller="Department" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Edit</a></td>
+                                        <td><a asp-controller="Department" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section DataTableSection{
+
+    <script>
+        $(function () {
+            $('.js-basic-example').DataTable({
+                responsive: true,
+                paging: true,
+                pageLength: 5,
+                bSort: true,
+                bFilter: true,
+                //bLengthChange: false,
+                //bInfo: false,
+                lengthMenu: [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
+
+            });
+        });
+    </script>
+}
+
+
+
+
+@*<table class="table table-hover table-striped table-bordered">
+
+    <tr class="thead-dark">
+        <th>ID</th>
+        <th>Name</th>
+        <th>Code</th>
+        <th>Details</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.Code</td>
+            <td><a asp-controller="Department" asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a></td>
+            <td><a asp-controller="Department" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Edit</a></td>
+            <td><a asp-controller="Department" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a></td>
+        </tr>
+    }
+
+    </table>*@

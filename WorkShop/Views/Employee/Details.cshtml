@@ -1,0 +1,54 @@
+﻿@model BLL.Models.EmployeeVM
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Layout/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<label asp-for="Id">Employee Id</label>
+<input type="text" class="form-control" asp-for="Id" disabled />
+<br />
+<br />
+
+<label asp-for="Name">Employee Name</label>
+<input type="text" class="form-control" asp-for="Name" disabled />
+<br />
+<br />
+
+<label asp-for="Salary">Employee Salary</label>
+<input type="number" class="form-control" asp-for="Salary" disabled />
+<br />
+<br />
+
+<label asp-for="Address">Employee Address</label>
+<input type="text" class="form-control" asp-for="Address" disabled />
+<br />
+<br />
+
+<label asp-for="HierDate">Employee HierDate</label>
+<input type="date" class="form-control" asp-for="HierDate" disabled />
+<br />
+<br />
+
+<label asp-for="Notes">Employee Notes</label>
+<textarea type="text" class="form-control" asp-for="Notes" rows="5" disabled></textarea>
+<br />
+<br />
+
+<div class="demo-checkbox">
+    <input type="checkbox" asp-for="IsActive" checked="" />
+    <label asp-for="IsActive">Employee Is Active ???</label>
+    <span asp-validation-for="IsActive" class="text-danger"></span>
+</div>
+<br />
+<br />
+
+<label asp-for="Department.Name">Department Name</label>
+<input type="text" class="form-control" asp-for="Department.Name" disabled />
+<br />
+<br />
+
+<a asp-controller="Employee" asp-action="Index" class="btn btn-info">Back To Employees</a>
+<a asp-controller="Employee" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a>
